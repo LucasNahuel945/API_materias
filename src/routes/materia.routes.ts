@@ -1,5 +1,7 @@
 import { Router } from 'express';
-import { getMateria, getMaterias, createMateria, updateMateria, deleteMateria } from '../controllers/materia.controller';
+import {
+  getMateria, getMaterias, createMateria, updateMateria, deleteMateria,
+} from '../controllers/materia.controller';
 
 const router = Router();
 

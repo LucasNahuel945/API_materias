@@ -1,18 +1,20 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from 'typeorm';
-import { Instituto } from './instituto';
-import { Materia } from './materia';
+import {
+  Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne,
+} from 'typeorm';
+import Instituto from './instituto';
+import Materia from './materia';
 
 @Entity()
-export class Carrera{
-    @PrimaryGeneratedColumn()
-    id: number;
-    
-    @OneToMany(() => Materia, materia => materia.carrera)
-    materias: Materia[];
+export default class Carrera {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    nombre: string;
+  @OneToMany(() => Materia, (materia: Materia) => materia.carrera)
+  materias: Materia[];
 
-    @ManyToOne(() => Instituto, instituto => instituto.carreras)
-    instituto: Instituto;
+  @Column()
+  nombre: string;
+
+  @ManyToOne(() => Instituto, (instituto: Instituto) => instituto.carreras)
+  instituto: Instituto;
 }

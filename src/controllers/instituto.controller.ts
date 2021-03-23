@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
-import { Instituto } from '../entities/instituto';
+import Instituto from '../entities/instituto';
 
 export const getInstitutos = async (
   req: Request,

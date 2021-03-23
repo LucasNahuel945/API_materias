@@ -1,5 +1,7 @@
 import { Router } from 'express';
-import { getInstituto, getInstitutos, createInstituto, updateInstituto, deleteInstituto } from '../controllers/instituto.controller';
+import {
+  getInstituto, getInstitutos, createInstituto, updateInstituto, deleteInstituto,
+} from '../controllers/instituto.controller';
 
 const router = Router();
 

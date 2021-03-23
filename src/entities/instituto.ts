@@ -1,12 +1,14 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Carrera } from './carrera';
+import {
+  Column, Entity, OneToMany, PrimaryGeneratedColumn,
+} from 'typeorm';
+import Carrera from './carrera';
 
 @Entity()
-export class Instituto{
+export default class Instituto {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @OneToMany(() => Carrera, carrera => carrera.instituto)
+    @OneToMany(() => Carrera, (carrera: Carrera) => carrera.instituto)
     carreras: Carrera[];
 
     @Column()

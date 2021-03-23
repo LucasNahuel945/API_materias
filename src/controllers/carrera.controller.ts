@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
-import { Carrera } from '../entities/carrera';
+import Carrera from '../entities/carrera';
 
 export const getCarreras = async (
   req: Request,

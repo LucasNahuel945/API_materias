@@ -1,24 +1,26 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
-import { Carrera } from './carrera';
+import {
+  Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, JoinTable,
+} from 'typeorm';
+import Carrera from './carrera';
 
 @Entity()
-export class Materia{
-    @PrimaryGeneratedColumn()
-    id: number;
-    
-    @ManyToOne(() => Carrera, carrera => carrera.materias)
-    carrera: Carrera;
+export default class Materia {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @ManyToMany(()=> Materia)
-    @JoinTable()
-    correlativas: Materia[];
+  @ManyToOne(() => Carrera, (carrera: Carrera) => carrera.materias)
+  carrera: Carrera;
 
-    @Column()
-    nombre: string;
-    
-    @Column()
-    esAnual: boolean;
-    
-    @Column()
-    cargaHoraria: number;
+  @ManyToMany(() => Materia)
+  @JoinTable()
+  correlativas: Materia[];
+
+  @Column()
+  nombre: string;
+
+  @Column()
+  esAnual: boolean;
+
+  @Column()
+  cargaHoraria: number;
 }

@@ -1,16 +1,16 @@
 import 'reflect-metadata';
 import { createConnection } from 'typeorm';
+import normalizePort from './utils/normalizePort';
 import server from './server';
 
-require('dotenv').config();
+const port = normalizePort(process.env.PORT || '3000');
 
 createConnection()
   .then(() => {
     console.log('DB connected');
   })
   .catch((error) => {
-    console.log(error);
+    throw new Error(error);
   });
 
-server.listen(server.get('port'));
-console.log('Server ON');
+server.listen(port);
